@@ -1,3 +1,4 @@
+
 from fastapi import FastAPI, HTTPException, status
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
@@ -35,6 +36,13 @@ def restar(a: float, b: float):
     """Resta dos números enviados como parámetros."""
     return {"resultado": a - b}
 
+@app.get("/factorial", status_code=status.HTTP_200_OK)
+def factorial(n: int):
+    """Calcular el factorial de un numero"""
+    fact=1
+    for i in range (1, n+1):
+        fact=fact*i
+    return {"resultado": fact}
 # ----------------------------
 # POST con cuerpo JSON
 # ----------------------------
@@ -52,3 +60,8 @@ def dividir(datos: Operacion):
             detail="No se puede dividir entre cero"
         )
     return {"resultado": datos.a / datos.b}
+
+@app.post("/potencia", status_code=status.HTTP_200_OK)
+def potencia(datos: Operacion):
+    """Calcula la potencia de a elevado a b (a^b)"""
+    return {"resultado": datos.a ** datos.b}

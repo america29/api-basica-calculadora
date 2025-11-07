@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV /home/jlqf/Documentos/cursos/UAM/2025/API/api-basica-calculadora/.venv
+set -gx VIRTUAL_ENV /home/america/repositorio/api-basica-calculadora/.venv
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"bin $PATH
